@@ -13,6 +13,7 @@ export default defineConfig({
     social: {
       github: 'https://github.com/vastsea0',
       discord: 'https://discord.gg/cfAtFzhTZT'
+      topluluk: 'https://topluluk.humatarayici.com'
     },
     sidebar: [{
       label: '[home] Anasayfa',
