@@ -1,66 +1,45 @@
-# Starlight Starter Kit: Ion Theme
+# Hüma Web Tarayıcısı
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Hüma Web Tarayıcısı, yerli yazılım dünyasında önemli bir adım atarak, Firefox tabanlı bir web tarayıcısı olarak kullanıcıların hizmetine sunulmuştur. Hız, güvenlik ve kullanıcı deneyimini ön planda tutarak, internet gezintinizi daha verimli ve keyifli hale getirmeyi hedefliyoruz. Bu yazıda, Hüma'nın sunduğu avantajlar, özellikler ve proje hakkındaki detayları derinlemesine inceleyeceğiz.
 
-```
-npm create astro@latest -- --template louisescher/starlight-ion-theme
-```
+## Genel Bakış
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/louisescher/starlight-ion-theme)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/louisescher/starlight-ion-theme)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flouisescher%2Fstarlight-ion-theme&project-name=my-starlight-ion-docs&repository-name=my-starlight-ion-docs)
+Hüma Web Tarayıcısı, genişletilebilir yapısı, yüksek performansı ve güçlü güvenlik özellikleri ile tanınır. Firefox’un güçlü ve açık kaynaklı altyapısından faydalanarak geliştirilmiş olan Hüma, yerel ihtiyaçları karşılamak ve kullanıcıların internet deneyimini en üst düzeye çıkarmak amacıyla özelleştirilmiştir.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Hız ve Performans
 
-![158shots_so](https://github.com/louisescher/starlight-ion-theme/assets/66965600/64241499-8c8e-4672-bf4d-b2d8ff2a6862)
+Hüma, web tarayıcısı performansını en üst seviyede tutmak için bir dizi yenilikçi teknolojiyi bir araya getirir. Tarayıcı motoru, sayfaları hızlı bir şekilde yükleme ve işleme yeteneğine sahiptir, bu da size hızlı ve kesintisiz bir internet deneyimi sunar. Ayrıca, Hüma’nın optimizasyonları, yüksek performanslı internet gezintisini destekleyerek web sayfalarının daha hızlı açılmasını sağlar.
 
-## 🚀 Project Structure
+### Güvenlik ve Gizlilik
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+Güvenlik, modern bir web tarayıcısının en önemli özelliklerinden biridir ve Hüma bu konuda kapsamlı bir yaklaşım benimser. Tarayıcı, kullanıcıların kişisel verilerini koruma amacıyla gelişmiş güvenlik protokolleri ve gizlilik önlemleri sunar. Kullanıcıların çevrimiçi etkinliklerini izlemek veya kişisel verilerini toplamak için tasarlanmış üçüncü taraf izleyicilere karşı koruma sağlar. Ayrıca, güçlü şifreleme algoritmaları ve güvenlik duvarları ile kullanıcı bilgileri güvende tutulur.
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   │   ├── docs/
-│   │   └── config.ts
-│   ├── icons/
-│   ├── schemas/
-│   ├── styles/
-│   ├── utils/
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+### Kişiselleştirme ve Kullanıcı Deneyimi
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Hüma, kullanıcı deneyimini en üst düzeye çıkarmak için geniş bir kişiselleştirme seçeneği sunar. Tarayıcı arayüzünü, tema ve eklentilerle özelleştirme imkanları sağlar. Kullanıcılar, tarayıcıyı kendi ihtiyaçlarına göre ayarlayabilir ve tarayıcıyı daha verimli kullanmak için çeşitli araçlar ve özellikler ekleyebilirler. Bu kişiselleştirme seçenekleri, tarayıcının kullanıcı dostu bir deneyim sunmasını sağlar.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+### Yerel Destek ve Topluluk
 
-Static assets, like favicons, can be placed in the `public/` directory.
+Hüma Web Tarayıcısı, Türkiye merkezli bir proje olarak yerel destek ve güncellemeler sunar. Kullanıcılar, tarayıcıyla ilgili herhangi bir sorun yaşadıklarında veya yardım ihtiyaçları olduğunda yerel destek ekibinden yardım alabilirler. Ayrıca, açık kaynaklı yapısı sayesinde, topluluk katkıları ve geri bildirimler projeyi sürekli olarak geliştirir ve günceller.
 
-Any component overrides made by this theme can be found in `src/components/`, any icons are located in `src/icons/`, and all styles are
-in the `src/styles/` directory.
+## GitHub ve Açık Kaynak Katkı
 
-To find out more, start your development server and check out the **Features** page.
+Hüma Web Tarayıcısı, açık kaynaklı bir proje olarak GitHub üzerinde barındırılmaktadır. Bu, geliştiricilere ve meraklılara projeye katkıda bulunma ve kod üzerinde değişiklik yapma fırsatı sunar. GitHub sayfasında, tarayıcının kaynak kodlarına erişebilir, rapor edilen hataları görebilir ve kendi katkılarınızı sunabilirsiniz. Proje ile ilgili güncellemeler ve geliştirmeler de bu platform üzerinden takip edilebilir.
 
-## 🧞 Commands
+Projemizi GitHub üzerinde bulabilirsiniz: [Hüma GitHub](https://github.com/huma-project)
 
-All commands are run from the root of the project, from a terminal:
+## Kurulum ve Başlangıç
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Hüma Web Tarayıcısını kurmak oldukça basittir. GitHub sayfamızda, tarayıcının en son sürümünü indirip kurmak için gereken talimatları bulabilirsiniz. Kurulum süreci adım adım açıklanmış olup, herhangi bir sorun yaşamanız durumunda destek ekibimizden yardım alabilirsiniz.
 
-## 👀 Want to learn more?
+1. **İndirme**: GitHub sayfasından Hüma’nın en son sürümünü indirin.
+2. **Kurulum**: İndirilen dosyayı açın ve kurulum sihirbazını takip edin.
+3. **Başlangıç**: Kurulum tamamlandığında, tarayıcıyı başlatın ve kişisel tercihlerinize göre yapılandırın.
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+## Sonuç
+
+Hüma Web Tarayıcısı, modern internet gezintisi için güçlü bir çözüm sunar. Hız, güvenlik ve kişiselleştirme konularında sunduğu avantajlarla, kullanıcıların beklentilerini karşılamakta ve internet deneyimlerini iyileştirmekte kararlıdır. Yerli bir proje olarak, yerel destek ve topluluk katkılarıyla sürekli gelişim ve yenilik sunar.
+
+Bu yazıda, Hüma’nın sunduğu özellikleri ve proje hakkındaki temel bilgileri derinlemesine inceledik. Eğer daha fazla bilgi edinmek veya projeye katkıda bulunmak isterseniz, GitHub sayfamızı ziyaret edebilir ve bizimle iletişime geçebilirsiniz. 
+
+Hüma Web Tarayıcısı ile internet deneyiminizi geliştirin ve tarayıcınızın sunduğu tüm avantajlardan faydalanın!
