@@ -26,7 +26,7 @@ Hüma Web Tarayıcısı, Türkiye merkezli bir proje olarak yerel destek ve gün
 
 Hüma Web Tarayıcısı, açık kaynaklı bir proje olarak GitHub üzerinde barındırılmaktadır. Bu, geliştiricilere ve meraklılara projeye katkıda bulunma ve kod üzerinde değişiklik yapma fırsatı sunar. GitHub sayfasında, tarayıcının kaynak kodlarına erişebilir, rapor edilen hataları görebilir ve kendi katkılarınızı sunabilirsiniz. Proje ile ilgili güncellemeler ve geliştirmeler de bu platform üzerinden takip edilebilir.
 
-Projemizi GitHub üzerinde bulabilirsiniz: [Hüma GitHub](https://github.com/huma-project)
+Projemizi GitHub üzerinde bulabilirsiniz: [Hüma GitHub](https://github.com/huma-browser)
 
 ## Kurulum ve Başlangıç
 
