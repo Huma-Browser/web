@@ -291,13 +291,16 @@ img{
 .container {
   position: relative;
   width: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
 .background-image {
   width: 100%;
-  height: auto;
-  opacity: 0.7;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 .overlay {
@@ -306,50 +309,68 @@ img{
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
 }
 
 .content {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1200px;
+  padding: 40px;
   color: white;
+  text-align: center;
 }
 
- 
- 
-
-/* Any headers containing badges should be flex headers */
-:is(h1, h2, h3):has(.sl-badge-lg) {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.25rem;
+h3 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Fix small misalignment in navbar links */
-.flex-link svg + span {
-  position: relative;
-  top: 1px;
+.CardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-/* Remove default padding on main since we have a footer */
-main:has(.page-footer) {
-  padding-bottom: 0 !important;
+.Card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media screen and (max-width: 1250px) {
-  .card-grid {
-    display: grid;
-    grid-template-columns: 1fr !important;
-    --stagger-height: 0rem !important;
+.Card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.Card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.Card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 90%;
+    padding: 20px;
   }
-}
 
-@media (max-width: 72rem) {
-  .main-pane {
-    width: 100% !important;
+  h3 {
+    font-size: 2rem;
+  }
+
+  .CardGrid {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,93 +1,153 @@
 ---
 title: "Hüma Tarayıcısı Referans Rehberi"
-description: Hüma için referans rehberi.
+description: Firefox tabanlı Hüma tarayıcısı için kapsamlı referans rehberi.
 ---
 
-### **Giriş**
-Hüma, Firefox tabanlı açık kaynaklı bir web tarayıcısıdır. Hızlı, güvenli ve özelleştirilebilir yapısıyla kullanıcılara en iyi tarayıcı deneyimini sunar. Bu rehber, Hüma tarayıcısının özelliklerini, API işlevlerini ve kullanım detaylarını içermektedir.
+# Hüma Tarayıcısı Referans Rehberi
 
-### **Genel Bakış**
+## Giriş
+
+Hüma, Firefox'un güçlü altyapısını kullanan özel bir web tarayıcısıdır. Firefox'un WebExtensions API'sini temel alarak, hızlı, güvenli ve özelleştirilebilir bir tarama deneyimi sunar. Bu rehber, Hüma tarayıcısının özelliklerini ve kullanılabilir API'leri detaylandırmaktadır.
+
+## Genel Bakış
+
 - **Tarayıcı Adı:** Hüma
-- **Taban:** Firefox (Gecko motoru)
-- **Geliştirici:** [GitHub - Hüma Projesi](https://github.com/VastSea0/Huma)
-- **Lisans:** Açık Kaynak (Mozilla Public License)
+- **Taban:** Firefox
+- **Motor:** Gecko (Firefox'tan)
+- **Lisans:** Mozilla Public License
 
-### **Özellikler**
-- **Dikey Sekmeler Desteği:** Hüma Sekmeleri eklentisi ile dikey sekme düzeni.
-- **Özelleştirilebilir Arayüz:** Kullanıcı dostu, kişiselleştirilebilir tema seçenekleri.
-- **Güvenlik:** En güncel güvenlik protokolleri ve gizlilik araçları.
+## Özellikler
 
-### **API Referansı**
-#### **1. Tarayıcı Arayüz API’si**
-- **openNewTab(url):**
-  - **Tanım:** Belirtilen URL’yi yeni bir sekmede açar.
-  - **Parametreler:** `url` (string) – Açılacak web sayfasının URL’si.
-  - **Geri Dönüş Değeri:** `tab` – Yeni açılan sekmenin nesnesi.
-  - **Örnek Kullanım:**
-    ```javascript
-    var newTab = openNewTab("https://www.example.com");
-    ```
+1. **Çoklu Sekme Yönetimi:** Firefox'un güçlü sekme yönetim sistemi.
+2. **Gizlilik Odaklı Tarama:** Gelişmiş izleyici koruması ve özel pencere modu.
+3. **Özelleştirilebilir Arayüz:** Firefox tema desteği ve arayüz düzenleme seçenekleri.
+4. **Eklenti Desteği:** Firefox eklenti ekosistemi ile uyumluluk.
+5. **Hızlı Tarama:** Gecko motorunun optimize edilmiş performansı.
 
-- **closeTab(tabId):**
-  - **Tanım:** Belirtilen sekmeyi kapatır.
-  - **Parametreler:** `tabId` (number) – Kapatılacak sekmenin kimliği.
-  - **Geri Dönüş Değeri:** `void`
-  - **Örnek Kullanım:**
-    ```javascript
-    closeTab(3);
-    ```
+## API Referansı
 
-#### **2. Kullanıcı Ayarları API’si**
-- **setTheme(themeName):**
-  - **Tanım:** Belirtilen temayı tarayıcıya uygular.
-  - **Parametreler:** `themeName` (string) – Uygulanacak tema adı.
-  - **Geri Dönüş Değeri:** `void`
-  - **Örnek Kullanım:**
-    ```javascript
-    setTheme("dark-mode");
-    ```
+Hüma, Firefox'un WebExtensions API'sini kullanır. İşte bazı temel API'ler:
 
-- **getBookmarks():**
-  - **Tanım:** Kullanıcının yer imlerini döner.
-  - **Parametreler:** Yok.
-  - **Geri Dönüş Değeri:** `Array` – Yer imlerinin listesi.
-  - **Örnek Kullanım:**
-    ```javascript
-    var bookmarks = getBookmarks();
-    ```
+### 1. Sekme Yönetimi API'si
 
-### **Sık Sorulan Sorular (SSS)**
-- **Hüma tarayıcısını nasıl özelleştirebilirim?**
-  - Hüma, eklentiler ve temalar aracılığıyla geniş ölçüde özelleştirilebilir. Kullanıcılar eklenti mağazasından farklı araçlar ve temalar indirebilirler.
+#### `browser.tabs.create(createProperties)`
 
-- **Hüma tarayıcısında güvenlik nasıl sağlanıyor?**
-  - Hüma, Firefox’un güçlü güvenlik altyapısını kullanır ve en güncel güvenlik yamalarını içerir.
+Yeni bir sekme açar.
 
-- **Hüma tarayıcısı hangi ekip tarafından geliştiriliyor?**
-  - Hüma, Egehan KAHRAMAN tarafından geliştiriyor. Henüz bir geliştirici ekibi yok bu nedenle tek kişi üzerinden geliştiriliyor ancak ilerleyen zamanlarda bir ekibin toplanması düşünülüyor.
+- **Parametreler:** 
+  - `createProperties` (object)
+    - `url` (string, opsiyonel): Açılacak URL
+    - `active` (boolean, opsiyonel): Sekmenin aktif olup olmayacağı
+- **Geri Dönüş:** `Promise<Tab>`
+- **Örnek:**
+  ```javascript
+  browser.tabs.create({ url: "https://www.example.com" })
+    .then(tab => console.log("Yeni sekme ID:", tab.id));
+  ```
 
-- **Hüma tarayıcısında dikey sekmeleri nasıl etkinleştirebilirim?**
-  - Hüma Sekmeleri eklentisi Hüma Gezgini eklentisi üzerinden "Hüma Sekmelerini edin" düğmesi ile edinilebilir.
+#### `browser.tabs.remove(tabIds)`
 
-- **Hüma sadece bir tarayıcı değil derken ne kast etmek istiyorsunuz?**
-  - Hüma'nın sadece bir tarayıcı olmadığını aynı zamanda bir tepki olduğunu belirtmek istiyoruz. Bu tepki özgürlüğe karışmaya çalışılan şeylere verilen bir tepkidir. Kalıplaşmaya verilen bir tepkidir.
+Belirtilen sekme(leri) kapatır.
 
-- **Hüma doğa ve küresel ısıma gibi küresel çevre sorunlarına karşı nasıl bir yol izliyor?**
-  - Hüma doğayı son derece önemli gören ve her şeyin başlangıcı kabul eden bir felsefeye sahiptir. Doğaya karşı açılan her savaş mağlub olmaya mahkumdur. Bu nedenle doğa ile son derece uyumlu olup; doğanın bize değil, bizim doğaya uyum sağlamamız gerektiğini savunur.
+- **Parametreler:** 
+  - `tabIds` (integer veya integer array): Kapatılacak sekme ID(leri)
+- **Geri Dönüş:** `Promise<void>`
+- **Örnek:**
+  ```javascript
+  browser.tabs.remove(4);
+  // veya
+  browser.tabs.remove([4, 5, 6]);
+  ```
 
-- **Hüma ilk ne zaman yazılmaya başlandı?**
-  - Hüma, ilk olarak 2022'de VastSea Browser adında bir deneysel olarak yazılmıştır ancak bu tarayıcı Hüma'nın değerlerini taşımadığından sadece deneysel bir iz olarak kalmıştır. Geçen zamanda ise 2023 yılında tekrardan yazılmaya başlanmış tarayıcı, geçen zamanda değer ve amaçlarını net bir şekilde belirlemiş ve bu yolda ilermeye devam etmiştir.
+### 2. Yer İmleri API'si
 
-- **Hüma tarayıcısının amacı nedir?**
-  - Hüma tarayıcısı, sadece bir web tarayıcısı olmanın ötesinde, özgürlüğün ve yeniliğin simgesi olarak tasarlanmış bir projedir. Hüma'nın temel amacı, kullanıcılarına özgür bir internet deneyimi sunmaktır. Özgürlüğü savunan Hüma, her koşulda bağımsızlığı ve bireysel kararı önemser. Kalıpların ötesinde, farklı dillerin ve kültürlerin değerini vurgulayan Hüma, Türk destanlarından esinlenerek ismini almıştır. Şeffaflık ilkesini benimseyen ve açık kaynak kodlu olan Hüma, kullanıcılarına güvenilir ve açık bir platform sunar. Hüma, özgürlüğü, bağımsız düşünceyi ve şeffaflığı merkezine alarak, daha iyi bir internet deneyimi sağlamayı hedefler.
+#### `browser.bookmarks.create(bookmark)`
 
-### **Kaynaklar**
-- **Resmi Hüma Belgeleri:** [Hüma Belgeleri](https://github.com/VastSea0/Huma)
-- **Mozilla Developer Network:** [MDN Web Docs](https://developer.mozilla.org/)
+Yeni bir yer imi oluşturur.
+
+- **Parametreler:**
+  - `bookmark` (object)
+    - `title` (string): Yer imi başlığı
+    - `url` (string, opsiyonel): Yer imi URL'si
+- **Geri Dönüş:** `Promise<BookmarkTreeNode>`
+- **Örnek:**
+  ```javascript
+  browser.bookmarks.create({
+    title: "Mozilla",
+    url: "https://mozilla.org"
+  }).then(bookmark => console.log("Yer imi eklendi:", bookmark.id));
+  ```
+
+### 3. Tema API'si
+
+#### `browser.theme.update(windowId, theme)`
+
+Tarayıcı temasını günceller.
+
+- **Parametreler:**
+  - `windowId` (integer, opsiyonel): Tema uygulanacak pencere ID'si
+  - `theme` (object): Tema özellikleri
+- **Geri Dönüş:** `Promise<void>`
+- **Örnek:**
+  ```javascript
+  browser.theme.update(undefined, {
+    images: {
+      theme_frame: "images/bg-light.png",
+    },
+    colors: {
+      frame: "#FFFFFF",
+      tab_background_text: "#000000"
+    }
+  });
+  ```
+
+## Eklenti Geliştirme
+
+Hüma, Firefox eklentileri ile uyumludur. Eklenti geliştirmek için:
+
+1. `manifest.json` dosyası oluşturun.
+2. Gerekli izinleri ve API'leri belirtin.
+3. Eklenti kodunuzu JavaScript kullanarak yazın.
+4. Eklentiyi Hüma'ya yükleyin ve test edin.
+
+Örnek `manifest.json`:
+
+```json
+{
+  "manifest_version": 2,
+  "name": "Hüma Örnek Eklenti",
+  "version": "1.0",
+  "description": "Hüma için örnek eklenti",
+  "permissions": ["tabs", "bookmarks"],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
+```
+
+## Güvenlik ve Gizlilik
+
+Hüma, Firefox'un güvenlik ve gizlilik özelliklerini miras alır:
+
+- **Gelişmiş İzleyici Koruması:** Üçüncü taraf izleyicileri engeller.
+- **Özel Gezinme Modu:** Geçmişi kaydetmeden gizli tarama.
+- **HTTPS-Only Modu:** Güvenli bağlantıları zorlar.
+
+## Performans İpuçları
+
+1. Sekmeler arasında hızlı geçiş için klavye kısayollarını kullanın (örn. Ctrl+Tab).
+2. Kullanılmayan eklentileri devre dışı bırakarak bellek kullanımını optimize edin.
+3. İçerik engelleme için uBlock Origin gibi hafif eklentiler kullanın.
+
+## Kaynaklar
+
+- [Mozilla Developer Network (MDN)](https://developer.mozilla.org/)
+- [Firefox Eklenti Workshop](https://extensionworkshop.com/)
+- [Firefox Kaynak Kodu](https://searchfox.org/)
+
 
 ### **Topluluk ve Destek**
-- **Forum:** [Marstakiler](https://marstakiler.vercel.app) – Hüma tarayıcı topluluğuna katılın ve sorularınıza yanıt bulun.
-- **GitHub:** [Hüma Projesi GitHub](https://github.com/VastSea0/Huma) – Kod katkıları ve hata bildirimleri için.
+- **GitHub:** [Hüma Projesi GitHub](https://github.com/Huma-Browser/browser) – Kod katkıları ve hata bildirimleri için.
 - **Discord** [Hüma Discord](https://discord.gg/ZVHmv9dJRf) - Discord sunucumuza katılın.
 ---
  
