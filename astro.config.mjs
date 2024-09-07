@@ -11,9 +11,8 @@ export default defineConfig({
       src: './src/assets/ion-logo.svg'
     },
     social: {
-      github: 'https://github.com/vastsea0',
+      github: 'https://github.com/huma-browser/browser',
       discord: 'https://discord.gg/cfAtFzhTZT'
-      topluluk: 'https://topluluk.humatarayici.com'
     },
     sidebar: [{
       label: '[home] Anasayfa',
